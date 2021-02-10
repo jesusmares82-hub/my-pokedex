@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+body {
+  background: #efefbb;
+  background: -webkit-linear-gradient(to right, #bbdfc8, #efefbb);
+  background: linear-gradient(to right, #75cfb8, #efefbb);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "Lato";
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  letter-spacing: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokegallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  height: 12rem;
+  margin: 10px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  box-shadow: 6px 10px 5px 0px rgba(199, 197, 199, 0.75);
+}
+
+.serchBar {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.img-container img {
+  margin-top: 20px;
+  max-width: 90%;
+}
+
+.electric {
+  background-color: rgb(250, 243, 208);
+}
+
+.steel {
+  background-color: #e6e6e6;
+}
+
+.water {
+  background-color: rgb(222, 243, 253);
+}
+
+.ice {
+  background-color: rgb(222, 243, 253);
+}
+
+.bug {
+  background-color: rgb(248, 213, 163);
+}
+
+.grass {
+  background-color: rgb(222, 253, 224);
+}
+
+.dragon {
+  background-color: rgb(151, 179, 230);
+}
+
+.fire {
+  background-color: rgb(226, 152, 152);
+}
+
+.normal {
+  background-color: rgb(228, 225, 225);
+}
+
+.flying {
+  background-color: rgb(230, 240, 244);
+}
+
+.rock {
+  background-color: rgb(213, 213, 212);
+}
+
+.psychic {
+  background-color: rgb(234, 237, 161);
+}
+
+.fairy {
+  background-color: rgb(234, 198, 240);
+}
+
+.ground {
+  background-color: rgb(242, 215, 188);
+}
+
+.poison {
+  background-color: rgb(152, 215, 165);
+}
+
+.fighting {
+  background-color: rgb(213, 196, 156);
+}
+
+.dark {
+  background-color: rgb(129, 160, 219);
+}
+
+.ghost {
+  background-color: rgb(121, 132, 214);
 }
