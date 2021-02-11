@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import "./App.css";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Pokedex = ({ name, url, type }) => {
@@ -76,9 +76,26 @@ const Pokedex = ({ name, url, type }) => {
 
 const Search = ({ handleSearchTerm }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  let value;
+  const [filterTerm, setFilterTerm] = useState(10);
   return (
     <div>
+      <label>Number of pokemons </label>
+
+      <select
+        value={filterTerm}
+        className="form-control"
+        id="total-questions"
+        onChange={(e) => {
+          const value = e.target.value;
+          setFilterTerm(value);
+        }}
+      >
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select>
       <input
         value={searchTerm}
         style={{
@@ -86,11 +103,15 @@ const Search = ({ handleSearchTerm }) => {
           backgroundColor: "#f4f9f9",
         }}
         onChange={(e) => {
-          value = e.target.value;
+          const value = e.target.value;
           setSearchTerm(value.toLowerCase());
         }}
       />
-      <button onClick={() => handleSearchTerm(searchTerm, setSearchTerm)}>
+      <button
+        onClick={() =>
+          handleSearchTerm(searchTerm, setSearchTerm, filterTerm, setFilterTerm)
+        }
+      >
         Search
       </button>
     </div>
@@ -108,20 +129,23 @@ const Clear = ({ handleClearTerm }) => {
 function App() {
   const [pokes, setPokes] = useState([]);
   const [query, setQuery] = useState("");
+  const [amount, setAmount] = useState("");
 
   useEffect(() => {
     if (query) {
       const promise = axios(`https://pokeapi.co/api/v2/type/${query}/`);
 
       promise.then((res) => {
-        setPokes(res.data.pokemon.slice(0, 10));
+        setPokes(res.data.pokemon.slice(0, amount));
       });
     }
   }, [query]);
 
-  const handleSearch = (value, setSearchTerm) => {
+  const handleSearch = (value, setSearchTerm, value2, setFilterTerm) => {
     setQuery(value);
     setSearchTerm("");
+    setAmount(value2);
+    setFilterTerm(10);
   };
 
   const handleClear = (value) => {
